@@ -72,7 +72,7 @@ const JobListing = () => {
             <h3 className='font-medium text-3xl py-2' id='job-list'>Latest Jobs</h3>
             <p className='mb-8'>Get your desired job from top companies</p>
             <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4'>
-                    {jobs.slice((currentPage-1)*6,currentPage*6).map((job,index)=>(
+                    {jobs.slice((currentPage-1)*9,currentPage*9).map((job,index)=>(
                         <JobCard key={index} job={job}/>
                     ))}
             </div>
@@ -82,7 +82,7 @@ const JobListing = () => {
                 <a href='#job-list'>
                     <img onClick={()=>setCurrentPage(Math.max((currentPage-1),1))} src={assets.left_arrow_icon} alt='left-arrow'/>
                 </a>
-                {Array.from({length:Math.ceil(jobs.length/6)}).map((_,index)=>(
+                {Array.from({length:Math.ceil(jobs.length/9)}).map((_,index)=>(
                     <a href='#job-list' key={index}>
                         <button className={`w-10 h-10 flex items-center justify-center border border-gray-300 rounded ${currentPage===index+1 ? 'bg-blue-100 text-blue-500' : 'text-gray-500'}`} onClick={e=>setCurrentPage(index+1)}>
                             {index+1}
@@ -90,7 +90,7 @@ const JobListing = () => {
                     </a>
                 ))}
                 <a href='#job-list'>
-                    <img onClick={()=>setCurrentPage(Math.min((currentPage+1),(Math.ceil(jobs.length/6))))} src={assets.right_arrow_icon} alt='right-arrow'/>
+                    <img onClick={()=>setCurrentPage(Math.min((currentPage+1),(Math.ceil(jobs.length/9))))} src={assets.right_arrow_icon} alt='right-arrow'/>
                 </a>
             </div>)}
         </section>
